@@ -7,6 +7,9 @@ package agileboard;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.TransferHandler;
 import java.awt.Color;
 
 /**
@@ -21,16 +24,27 @@ public class Main {
     public static void main(String[] args) {
         JFrame frame = new JFrame("Agile Board");
 
-        // Configuration por frame
+        // Create panel containers
+        JPanel todo = new JPanel();
+        todo.setBounds(40, 80, 200, 200);
+        todo.setBackground(Color.gray);
+
+        // Components
+        JLabel to_do = new JLabel("To Do");
+        to_do.setBounds(50, 50, 100, 30);
+
+        todo.add(to_do);
+
+        // Add components to frame
+        frame.add(todo);
+
+        // Configuration for frame
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLayout(null);
         frame.setVisible(true);
         frame.setSize(1280, 720);
         frame.setResizable(false);
-
-        // Frame background color
         frame.getContentPane().setBackground(new Color(180, 196, 174));
-
-        // Frame icon
         ImageIcon icon = new ImageIcon("image/mente.png");
         frame.setIconImage(icon.getImage());
     }
